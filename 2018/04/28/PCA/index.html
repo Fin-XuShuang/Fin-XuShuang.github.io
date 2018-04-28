@@ -102,24 +102,24 @@
 
 
 
-  <meta name="description" content="一、概念&amp;#8195;PCA是一种降维算法   二、用途&amp;#8195;（1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据&amp;#8195;（2）数据压缩，将冗余的特征简洁化，加快学习算法的速度&amp;#8195;（3）数据可视化，将高维数据降维成二维、三维以进行可视化展示   三、算法描述&amp;#8195;在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的">
+  <meta name="description" content="一、概念PCA是一种降维算法   (1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据(2）数据压缩，将冗余的特征简洁化，加快学习算法的速度(3）数据可视化，将高维数据降维成二维、三维以进行可视化展示   三、算法描述在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的平均均方误差尽可能小，而投射误差是从特征向量向该方向向量做垂线的距离。假设训练">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PCA">
-<meta property="og:url" content="http://yoursite.com/2018/04/27/PCA/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/PCA/index.html">
 <meta property="og:site_name" content="Xushuang&#39;s Blog">
-<meta property="og:description" content="一、概念&amp;#8195;PCA是一种降维算法   二、用途&amp;#8195;（1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据&amp;#8195;（2）数据压缩，将冗余的特征简洁化，加快学习算法的速度&amp;#8195;（3）数据可视化，将高维数据降维成二维、三维以进行可视化展示   三、算法描述&amp;#8195;在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的">
+<meta property="og:description" content="一、概念PCA是一种降维算法   (1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据(2）数据压缩，将冗余的特征简洁化，加快学习算法的速度(3）数据可视化，将高维数据降维成二维、三维以进行可视化展示   三、算法描述在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的平均均方误差尽可能小，而投射误差是从特征向量向该方向向量做垂线的距离。假设训练">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-27T09:14:53.542Z">
+<meta property="og:updated_time" content="2018-04-28T07:19:01.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PCA">
-<meta name="twitter:description" content="一、概念&amp;#8195;PCA是一种降维算法   二、用途&amp;#8195;（1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据&amp;#8195;（2）数据压缩，将冗余的特征简洁化，加快学习算法的速度&amp;#8195;（3）数据可视化，将高维数据降维成二维、三维以进行可视化展示   三、算法描述&amp;#8195;在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的">
+<meta name="twitter:description" content="一、概念PCA是一种降维算法   (1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据(2）数据压缩，将冗余的特征简洁化，加快学习算法的速度(3）数据可视化，将高维数据降维成二维、三维以进行可视化展示   三、算法描述在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的平均均方误差尽可能小，而投射误差是从特征向量向该方向向量做垂线的距离。假设训练">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/27/PCA/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/28/PCA/"/>
 
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/PCA/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/PCA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xushuang">
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="Created: 2018-04-27 17:13:43 / Modified: 17:14:53" itemprop="dateCreated datePublished" datetime="2018-04-27T17:13:43+08:00">2018-04-27</time>
+              <time title="Created: 2018-04-28 14:08:15 / Modified: 15:19:01" itemprop="dateCreated datePublished" datetime="2018-04-28T14:08:15+08:00">2018-04-28</time>
             
 
             
@@ -373,13 +373,16 @@
       
 
       
-        <p>一、概念<br>&#8195;PCA是一种降维算法  </p>
-<p>二、用途<br>&#8195;（1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据<br>&#8195;（2）数据压缩，将冗余的特征简洁化，加快学习算法的速度<br>&#8195;（3）数据可视化，将高维数据降维成二维、三维以进行可视化展示  </p>
-<p>三、算法描述<br>&#8195;在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的平均均方误差尽可能小，而投射误差是从特征向量向该方向向量做垂线的距离。<br>&#8195;假设训练集是$x^1,x^2,…,x^m$，训练集方差为：$\frac{1}{m}\sum^m_{i=1}||x^{(i)}||^2$，我们要把n维数据降到k维，目标是找到方向向量$u^{(1)},u^{(2)},…,u^{(k)}$,使得平均均方误差最小，假设降维后的训练集集合为$z^{(1)},z^{(2)},…,z{(n)}$<br>&#8195;第一步：均值归一化。计算训练样本特征均值向量$\mu=(\mu_1,\mu_2,…,\mu_n)$, 然后令$x^i_j = x^i_j - \mu_j$，如果特征在不同数量级上，$x^i_j = (x^i_j - \mu_j )/s_j$，$s_j$是第j个特征的方差<br>&#8195;第二步：计算协方差矩阵。$\sum = \frac{1}{m}\sum_{i=1}^{m}(x^{(i)}<em>(x^{(i)})^T) $<br>&#8195;第三步：计算协方差矩阵的特征向量。<br>$ \left[ \begin{array} {cccc}<br>u^{1}&amp;u^{2}&amp;\cdots&amp;u^{k}&amp;\cdots&amp;u^{n}<br>\end{array} \right] $<br>&#8195;&#8195;&#8195;&#8195;&#8195;则我们要找的方向向量$u_{reduce} = u^{(1)},u^{(2)},\ldots,u{(k)}$<br>&#8195;第四步：计算降维后的新特征向量。$z^{(i)} = u^T_{reduce} </em> x^{(i)}$<br>&#8195;第五步：计算压缩后的训练集近似地回到原始维度的数据集。$x^{(i)}<em>{approx} = u</em>{reduce} * z{(i)}$<br>&#8195;第六步：计算平均均方误差与训练集方差的比值。$\frac{\frac{1}{m}\sum^m_{i=1}||x^{(i)}-x^{(i)}<em>{approx}||^2}{\frac{1}{m}\sum^m</em>{i=1}||x^{(i)}||^2}$<br>&#8195;第七步：选择使得平均均方误差与训练集方差的比值&lt;=0.01的最小k值。0.01是个经验值，意味着原始训练集偏差有99%被保留下来了，典型的取值还有0.05和0.1，这个值越大越能降低原始训练集的维度。具体算法是先令k=1,然后运行第四步至第六步，第六步计算的比值小于我们设定的比值，则计算结束，若不小于，则另k=2,3,4…，直至满足我们设定好的比值。  </p>
-<p>四、PCA算法在监督学习中的应用<br>&#8195;假设监督学习中的训练数据集是$((x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),…,(x^{(m)},y^{(m)}))$，样本特征量庞大，我们希望通过降低维度以提高算法运行效率，可采用以下方法：<br>&#8195;第一步：提取训练数据集中的所有特征向量，即提取x，暂时不管y；<br>&#8195;第二步：通过PCA算法将$(x^{(1)},x^{(2)},…,x^{(m)})\in R^{n}$降维成$(z^{(1)},z^{(2)},…,z^{(m)}) \in R^{k}$；<br>&#8195;第三步：新的训练数据集定义为：$((z^{(1)},y^{(1)}),(z^{(2)},y^{(2)}),…,(z^{(m)},y^{(m)}))$，用新的训练数据集训练模型；<br>&#8195;第四步：当要用测试集、交叉验证集进行模型验证或者用模型预测新问题时，先将输入的特征向量通过PCA降维，再输入到模型进行验证或预测。  </p>
-<p>五、PCA应用的注意事项<br>&#8195;（1）不要用PCA来避免过拟合，解决过拟合问题还是应该使用正则化，因为主成分分析法只是近似丢掉一些特征，不考虑任何与结果变量有关的信息，因此可能丢掉重要的特征，然而正则化会考虑结果变量，不会丢掉重要信息；<br>&#8195;（2）不要默认将PCA作为机器学习过程中的一部分，应该思考PCA的使用和不使用对整个机器学习结果的影响，建议先使用原始数据看看效果，只有在算法运行太慢或者占用太多内存的时候才考虑采用PCA。  </p>
-<p>六、主成分分析法与线性回归的比较<br>&#8195;（1）PCA算法过程是无监督学习，线性回归算法过程是监督学习<br>&#8195;（2）PCA算法目标是最小化投射误差，线性回归是最小化预测误差<br>&#8195;（3）PCA的目的是降维，线性回归的目的是预测  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>一、概念<br>PCA是一种降维算法  </p>
+<p>(1）数据压缩，减少内存或者磁盘空间的使用以存储更多的数据<br>(2）数据压缩，将冗余的特征简洁化，加快学习算法的速度<br>(3）数据可视化，将高维数据降维成二维、三维以进行可视化展示  </p>
+<p>三、算法描述<br>在PCA算法中，我们要找到一个经过原点的方向向量，当我们把所有样本投射到该向量上时，我们希望投射的平均均方误差尽可能小，而投射误差是从特征向量向该方向向量做垂线的距离。<br>假设训练集是$x^1,x^2,…,x^m$，训练集方差为：$\frac{1}{m}\sum^m_{i=1}||x^{(i)}||^2$，我们要把n维数据降到k维，目标是找到方向向量$u^{(1)},u^{(2)},…,u^{(k)}$,使得平均均方误差最小，假设降维后的训练集集合为$z^{(1)},z^{(2)},…,z{(n)}$<br>第一步：均值归一化。计算训练样本特征均值向量$\mu=(\mu_1,\mu_2,…,\mu_n)$, 然后令$x^i_j = x^i_j - \mu_j$，如果特征在不同数量级上，$x^i_j = (x^i_j - \mu_j )/s_j$，$s_j$是第j个特征的方差<br>第三步：计算协方差矩阵的特征向量。<br>$ [ \begin{array} {cccc}<br>u^{1}&amp;u^{2}&amp;\cdots&amp;u^{k}&amp;\cdots&amp;u^{n}<br>\end{array} ] $<br>则我们要找的方向向量$u_{reduce} = u^{(1)},u^{(2)},\ldots,u{(k)}$  </p>
+<p>第四步：计算降维后的新特征向量。$z^{(i)} = u^T_{reduce} * x^{(i)}$   </p>
+<p>第五步：计算压缩后的训练集近似地回到原始维度的数据集。$x_{approx}^{(i)}=u_{reduce} \times z^{(i)}$     </p>
+<p>第六步：计算平均均方误差与训练集方差的比值。$\frac{\frac{1}{m}\sum_{i=1}^{m} \lVert{x^{(i)}-x_{approx}^{(i)}}\rVert ^2}{\frac{1}{m}\sum_{i=1}^{m} \lVert{x^{(i)}}\rVert ^2}$<br>第七步：选择使得平均均方误差与训练集方差的比值&lt;=0.01的最小k值。0.01是个经验值，意味着原始训练集偏差有99%被保留下来了，典型的取值还有0.05和0.1，这个值越大越能降低原始训练集的维度。具体算法是先令k=1,然后运行第四步至第六步，第六步计算的比值小于我们设定的比值，则计算结束，若不小于，则另k=2,3,4…，直至满足我们设定好的比值。  </p>
+<p>四、PCA算法在监督学习中的应用<br>假设监督学习中的训练数据集是$((x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),…,(x^{(m)},y^{(m)}))$，样本特征量庞大，我们希望通过降低维度以提高算法运行效率，可采用以下方法：<br>第一步：提取训练数据集中的所有特征向量，即提取x，暂时不管y；<br>第二步：通过PCA算法将$(x^{(1)},x^{(2)},…,x^{(m)})\in R^{n}$降维成$(z^{(1)},z^{(2)},…,z^{(m)}) \in R^{k}$；<br>第三步：新的训练数据集定义为：$((z^{(1)},y^{(1)}),(z^{(2)},y^{(2)}),…,(z^{(m)},y^{(m)}))$，用新的训练数据集训练模型；<br>第四步：当要用测试集、交叉验证集进行模型验证或者用模型预测新问题时，先将输入的特征向量通过PCA降维，再输入到模型进行验证或预测。  </p>
+<p>五、PCA应用的注意事项<br>（1）不要用PCA来避免过拟合，解决过拟合问题还是应该使用正则化，因为主成分分析法只是近似丢掉一些特征，不考虑任何与结果变量有关的信息，因此可能丢掉重要的特征，然而正则化会考虑结果变量，不会丢掉重要信息；<br>（2）不要默认将PCA作为机器学习过程中的一部分，应该思考PCA的使用和不使用对整个机器学习结果的影响，建议先使用原始数据看看效果，只有在算法运行太慢或者占用太多内存的时候才考虑采用PCA。  </p>
+<p>六、主成分分析法与线性回归的比较<br>（1）PCA算法过程是无监督学习，线性回归算法过程是监督学习<br>（2）PCA算法目标是最小化投射误差，线性回归是最小化预测误差<br>（3）PCA的目的是降维，线性回归的目的是预测  </p>
+<p>$\Sigma$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
@@ -417,6 +420,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/28/GUAN_NBclassfy/" rel="prev" title="NBclassfy">
+                NBclassfy <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -485,7 +492,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -726,7 +733,7 @@
         }
     });
 </script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
   

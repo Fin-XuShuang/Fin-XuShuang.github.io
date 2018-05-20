@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="123456import numpy as npimport matplotlib.pyplot as plta = np.loadtxt(&apos;/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt&apos;,dtype = np.float,delimiter = &apos;,&apos;,unpack=True)print(a[0])plt.s">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LR">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/LR/index.html">
+<meta property="og:site_name" content="Xushuang&#39;s Blog">
+<meta property="og:description" content="123456import numpy as npimport matplotlib.pyplot as plta = np.loadtxt(&apos;/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt&apos;,dtype = np.float,delimiter = &apos;,&apos;,unpack=True)print(a[0])plt.s">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_0_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_1_0.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_7_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_9_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_10_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_11_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_12_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/LR/output_13_1.png">
+<meta property="og:updated_time" content="2018-04-28T08:24:08.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LR">
+<meta name="twitter:description" content="123456import numpy as npimport matplotlib.pyplot as plta = np.loadtxt(&apos;/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt&apos;,dtype = np.float,delimiter = &apos;,&apos;,unpack=True)print(a[0])plt.s">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/28/LR/output_0_1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/28/LR/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>LR | Xushuang's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xushuang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">风控 Python</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/LR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xushuang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xushuang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LR
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-04-28 16:22:26 / Modified: 16:24:08" itemprop="dateCreated datePublished" datetime="2018-04-28T16:22:26+08:00">2018-04-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">a = np.loadtxt(<span class="string">'/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>,dtype = np.float,delimiter = <span class="string">','</span>,unpack=<span class="keyword">True</span>)</span><br><span class="line">print(a[<span class="number">0</span>])</span><br><span class="line">plt.scatter(a[<span class="number">0</span>],a[<span class="number">1</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>[  6.1101   5.5277   8.5186   7.0032   5.8598   8.3829   7.4764   8.5781
+   6.4862   5.0546   5.7107  14.164    5.734    8.4084   5.6407   5.3794
+   6.3654   5.1301   6.4296   7.0708   6.1891  20.27     5.4901   6.3261
+   5.5649  18.945   12.828   10.957   13.176   22.203    5.2524   6.5894
+   9.2482   5.8918   8.2111   7.9334   8.0959   5.6063  12.836    6.3534
+   5.4069   6.8825  11.708    5.7737   7.8247   7.0931   5.0702   5.8014
+  11.7      5.5416   7.5402   5.3077   7.4239   7.6031   6.3328   6.3589
+   6.2742   5.6397   9.3102   9.4536   8.8254   5.1793  21.279   14.908
+  18.959    7.2182   8.2951  10.236    5.4994  20.341   10.136    7.3345
+   6.0062   7.2259   5.0269   6.5479   7.5386   5.0365  10.274    5.1077
+   5.7292   5.1884   6.3557   9.7687   6.5159   8.5172   9.1802   6.002
+   5.5204   5.0594   5.7077   7.6366   5.8707   5.3054   8.2934  13.394
+   5.4369]
+</code></pre><p><img src="/2018/04/28/LR/output_0_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#正规方程</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">(fileName)</span>:</span></span><br><span class="line">    numFeat = len(open(fileName).readline().split(<span class="string">','</span>))<span class="number">-1</span><span class="comment">#属性数量</span></span><br><span class="line">    dataMat = [];labelMat = []</span><br><span class="line">    fr = open(fileName)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():<span class="comment">#按行读入，读入后默认为字符串</span></span><br><span class="line">        lineArr = []</span><br><span class="line">        curLine = line.strip().split(<span class="string">','</span>)<span class="comment">#去掉首尾空格，按逗号分隔,curLine是列表,eg:['1.000000', '0.067732', '3.176513']</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeat):</span><br><span class="line">            lineArr.append(<span class="number">1</span>)</span><br><span class="line">            lineArr.append(float(curLine[i]))</span><br><span class="line">        dataMat.append(lineArr)</span><br><span class="line">        labelMat.append(float(curLine[<span class="number">-1</span>]))</span><br><span class="line">    <span class="keyword">return</span> dataMat,labelMat<span class="comment">#列表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">standRegres</span><span class="params">(xArr,yArr)</span>:</span></span><br><span class="line">    xMat = mat(xArr);yMat = mat(yArr).T</span><br><span class="line">    xTx = xMat.T*xMat</span><br><span class="line">    <span class="keyword">if</span> linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">        print(<span class="string">"This matrix is singular, cannot do inverse"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ws = xTx.I*(xMat.T*yMat)</span><br><span class="line">    <span class="keyword">return</span> ws</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">regression1</span><span class="params">()</span>:</span></span><br><span class="line">    xArr,yArr = loadDataSet(<span class="string">'/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>)</span><br><span class="line">    xMat = mat(xArr)</span><br><span class="line">    yMat = mat(yArr)</span><br><span class="line">    ws = standRegres(xArr,yArr)</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">    ax.scatter(xMat[:,<span class="number">1</span>].flatten().A[<span class="number">0</span>],yMat.T[:,<span class="number">0</span>].flatten().A[<span class="number">0</span>])</span><br><span class="line">    xCopy = xMat.copy()</span><br><span class="line">    xCopy.sort(<span class="number">1</span>)</span><br><span class="line">    yHat = xCopy*ws</span><br><span class="line">    ax.plot(xCopy[:,<span class="number">1</span>],yHat)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">regression1()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/04/28/LR/output_1_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fr = open(<span class="string">'/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():</span><br><span class="line">    print(line.strip().split(<span class="string">','</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;6.1101&apos;, &apos;17.592&apos;]
+[&apos;5.5277&apos;, &apos;9.1302&apos;]
+[&apos;8.5186&apos;, &apos;13.662&apos;]
+[&apos;7.0032&apos;, &apos;11.854&apos;]
+[&apos;5.8598&apos;, &apos;6.8233&apos;]
+[&apos;8.3829&apos;, &apos;11.886&apos;]
+[&apos;7.4764&apos;, &apos;4.3483&apos;]
+[&apos;8.5781&apos;, &apos;12&apos;]
+[&apos;6.4862&apos;, &apos;6.5987&apos;]
+[&apos;5.0546&apos;, &apos;3.8166&apos;]
+[&apos;5.7107&apos;, &apos;3.2522&apos;]
+[&apos;14.164&apos;, &apos;15.505&apos;]
+[&apos;5.734&apos;, &apos;3.1551&apos;]
+[&apos;8.4084&apos;, &apos;7.2258&apos;]
+[&apos;5.6407&apos;, &apos;0.71618&apos;]
+[&apos;5.3794&apos;, &apos;3.5129&apos;]
+[&apos;6.3654&apos;, &apos;5.3048&apos;]
+[&apos;5.1301&apos;, &apos;0.56077&apos;]
+[&apos;6.4296&apos;, &apos;3.6518&apos;]
+[&apos;7.0708&apos;, &apos;5.3893&apos;]
+[&apos;6.1891&apos;, &apos;3.1386&apos;]
+[&apos;20.27&apos;, &apos;21.767&apos;]
+[&apos;5.4901&apos;, &apos;4.263&apos;]
+[&apos;6.3261&apos;, &apos;5.1875&apos;]
+[&apos;5.5649&apos;, &apos;3.0825&apos;]
+[&apos;18.945&apos;, &apos;22.638&apos;]
+[&apos;12.828&apos;, &apos;13.501&apos;]
+[&apos;10.957&apos;, &apos;7.0467&apos;]
+[&apos;13.176&apos;, &apos;14.692&apos;]
+[&apos;22.203&apos;, &apos;24.147&apos;]
+[&apos;5.2524&apos;, &apos;-1.22&apos;]
+[&apos;6.5894&apos;, &apos;5.9966&apos;]
+[&apos;9.2482&apos;, &apos;12.134&apos;]
+[&apos;5.8918&apos;, &apos;1.8495&apos;]
+[&apos;8.2111&apos;, &apos;6.5426&apos;]
+[&apos;7.9334&apos;, &apos;4.5623&apos;]
+[&apos;8.0959&apos;, &apos;4.1164&apos;]
+[&apos;5.6063&apos;, &apos;3.3928&apos;]
+[&apos;12.836&apos;, &apos;10.117&apos;]
+[&apos;6.3534&apos;, &apos;5.4974&apos;]
+[&apos;5.4069&apos;, &apos;0.55657&apos;]
+[&apos;6.8825&apos;, &apos;3.9115&apos;]
+[&apos;11.708&apos;, &apos;5.3854&apos;]
+[&apos;5.7737&apos;, &apos;2.4406&apos;]
+[&apos;7.8247&apos;, &apos;6.7318&apos;]
+[&apos;7.0931&apos;, &apos;1.0463&apos;]
+[&apos;5.0702&apos;, &apos;5.1337&apos;]
+[&apos;5.8014&apos;, &apos;1.844&apos;]
+[&apos;11.7&apos;, &apos;8.0043&apos;]
+[&apos;5.5416&apos;, &apos;1.0179&apos;]
+[&apos;7.5402&apos;, &apos;6.7504&apos;]
+[&apos;5.3077&apos;, &apos;1.8396&apos;]
+[&apos;7.4239&apos;, &apos;4.2885&apos;]
+[&apos;7.6031&apos;, &apos;4.9981&apos;]
+[&apos;6.3328&apos;, &apos;1.4233&apos;]
+[&apos;6.3589&apos;, &apos;-1.4211&apos;]
+[&apos;6.2742&apos;, &apos;2.4756&apos;]
+[&apos;5.6397&apos;, &apos;4.6042&apos;]
+[&apos;9.3102&apos;, &apos;3.9624&apos;]
+[&apos;9.4536&apos;, &apos;5.4141&apos;]
+[&apos;8.8254&apos;, &apos;5.1694&apos;]
+[&apos;5.1793&apos;, &apos;-0.74279&apos;]
+[&apos;21.279&apos;, &apos;17.929&apos;]
+[&apos;14.908&apos;, &apos;12.054&apos;]
+[&apos;18.959&apos;, &apos;17.054&apos;]
+[&apos;7.2182&apos;, &apos;4.8852&apos;]
+[&apos;8.2951&apos;, &apos;5.7442&apos;]
+[&apos;10.236&apos;, &apos;7.7754&apos;]
+[&apos;5.4994&apos;, &apos;1.0173&apos;]
+[&apos;20.341&apos;, &apos;20.992&apos;]
+[&apos;10.136&apos;, &apos;6.6799&apos;]
+[&apos;7.3345&apos;, &apos;4.0259&apos;]
+[&apos;6.0062&apos;, &apos;1.2784&apos;]
+[&apos;7.2259&apos;, &apos;3.3411&apos;]
+[&apos;5.0269&apos;, &apos;-2.6807&apos;]
+[&apos;6.5479&apos;, &apos;0.29678&apos;]
+[&apos;7.5386&apos;, &apos;3.8845&apos;]
+[&apos;5.0365&apos;, &apos;5.7014&apos;]
+[&apos;10.274&apos;, &apos;6.7526&apos;]
+[&apos;5.1077&apos;, &apos;2.0576&apos;]
+[&apos;5.7292&apos;, &apos;0.47953&apos;]
+[&apos;5.1884&apos;, &apos;0.20421&apos;]
+[&apos;6.3557&apos;, &apos;0.67861&apos;]
+[&apos;9.7687&apos;, &apos;7.5435&apos;]
+[&apos;6.5159&apos;, &apos;5.3436&apos;]
+[&apos;8.5172&apos;, &apos;4.2415&apos;]
+[&apos;9.1802&apos;, &apos;6.7981&apos;]
+[&apos;6.002&apos;, &apos;0.92695&apos;]
+[&apos;5.5204&apos;, &apos;0.152&apos;]
+[&apos;5.0594&apos;, &apos;2.8214&apos;]
+[&apos;5.7077&apos;, &apos;1.8451&apos;]
+[&apos;7.6366&apos;, &apos;4.2959&apos;]
+[&apos;5.8707&apos;, &apos;7.2029&apos;]
+[&apos;5.3054&apos;, &apos;1.9869&apos;]
+[&apos;8.2934&apos;, &apos;0.14454&apos;]
+[&apos;13.394&apos;, &apos;9.0551&apos;]
+[&apos;5.4369&apos;, &apos;0.61705&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line">numFeat = len(open(<span class="string">'/Users/a123/Desktop/最近个人资料/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>).readline().split(<span class="string">','</span>))<span class="number">-1</span><span class="comment">#属性数量</span></span><br><span class="line">dataMat = [];labelMat = []</span><br><span class="line">fr = open(<span class="string">'/Users/a123/Desktop/最近个人资料/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():<span class="comment">#按行读入，读入后默认为字符串</span></span><br><span class="line">    lineArr = []</span><br><span class="line">    curLine = line.strip().split(<span class="string">','</span>)<span class="comment">#去掉首尾空格，按逗号分隔，每一行为一个列表，列表中每个元素为字符串</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeat):</span><br><span class="line">        lineArr.append(<span class="number">1</span>)</span><br><span class="line">        lineArr.append(float(curLine[i]))</span><br><span class="line">    dataMat.append(lineArr)</span><br><span class="line">    labelMat.append(float(curLine[<span class="number">-1</span>]))</span><br><span class="line">print(dataMat)</span><br><span class="line">print(labelMat)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1, 6.1101], [1, 5.5277], [1, 8.5186], [1, 7.0032], [1, 5.8598], [1, 8.3829], [1, 7.4764], [1, 8.5781], [1, 6.4862], [1, 5.0546], [1, 5.7107], [1, 14.164], [1, 5.734], [1, 8.4084], [1, 5.6407], [1, 5.3794], [1, 6.3654], [1, 5.1301], [1, 6.4296], [1, 7.0708], [1, 6.1891], [1, 20.27], [1, 5.4901], [1, 6.3261], [1, 5.5649], [1, 18.945], [1, 12.828], [1, 10.957], [1, 13.176], [1, 22.203], [1, 5.2524], [1, 6.5894], [1, 9.2482], [1, 5.8918], [1, 8.2111], [1, 7.9334], [1, 8.0959], [1, 5.6063], [1, 12.836], [1, 6.3534], [1, 5.4069], [1, 6.8825], [1, 11.708], [1, 5.7737], [1, 7.8247], [1, 7.0931], [1, 5.0702], [1, 5.8014], [1, 11.7], [1, 5.5416], [1, 7.5402], [1, 5.3077], [1, 7.4239], [1, 7.6031], [1, 6.3328], [1, 6.3589], [1, 6.2742], [1, 5.6397], [1, 9.3102], [1, 9.4536], [1, 8.8254], [1, 5.1793], [1, 21.279], [1, 14.908], [1, 18.959], [1, 7.2182], [1, 8.2951], [1, 10.236], [1, 5.4994], [1, 20.341], [1, 10.136], [1, 7.3345], [1, 6.0062], [1, 7.2259], [1, 5.0269], [1, 6.5479], [1, 7.5386], [1, 5.0365], [1, 10.274], [1, 5.1077], [1, 5.7292], [1, 5.1884], [1, 6.3557], [1, 9.7687], [1, 6.5159], [1, 8.5172], [1, 9.1802], [1, 6.002], [1, 5.5204], [1, 5.0594], [1, 5.7077], [1, 7.6366], [1, 5.8707], [1, 5.3054], [1, 8.2934], [1, 13.394], [1, 5.4369]]
+[17.592, 9.1302, 13.662, 11.854, 6.8233, 11.886, 4.3483, 12.0, 6.5987, 3.8166, 3.2522, 15.505, 3.1551, 7.2258, 0.71618, 3.5129, 5.3048, 0.56077, 3.6518, 5.3893, 3.1386, 21.767, 4.263, 5.1875, 3.0825, 22.638, 13.501, 7.0467, 14.692, 24.147, -1.22, 5.9966, 12.134, 1.8495, 6.5426, 4.5623, 4.1164, 3.3928, 10.117, 5.4974, 0.55657, 3.9115, 5.3854, 2.4406, 6.7318, 1.0463, 5.1337, 1.844, 8.0043, 1.0179, 6.7504, 1.8396, 4.2885, 4.9981, 1.4233, -1.4211, 2.4756, 4.6042, 3.9624, 5.4141, 5.1694, -0.74279, 17.929, 12.054, 17.054, 4.8852, 5.7442, 7.7754, 1.0173, 20.992, 6.6799, 4.0259, 1.2784, 3.3411, -2.6807, 0.29678, 3.8845, 5.7014, 6.7526, 2.0576, 0.47953, 0.20421, 0.67861, 7.5435, 5.3436, 4.2415, 6.7981, 0.92695, 0.152, 2.8214, 1.8451, 4.2959, 7.2029, 1.9869, 0.14454, 9.0551, 0.61705]
+1
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">numFeat = len(open(<span class="string">'/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>).readline().split(<span class="string">','</span>))<span class="number">-1</span><span class="comment">#属性数量</span></span><br><span class="line">dataMat = [];labelMat = []</span><br><span class="line">fr = open(<span class="string">'/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():<span class="comment">#按行读入，读入后默认为字符串</span></span><br><span class="line">    lineArr = []</span><br><span class="line">    curLine = line.strip().split(<span class="string">','</span>)<span class="comment">#去掉首尾空格，按逗号分隔，每一行为一个列表，列表中每个元素为字符串</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeat):</span><br><span class="line">        lineArr.append(<span class="number">1</span>)</span><br><span class="line">        lineArr.append(float(curLine[i]))</span><br><span class="line">    dataMat.append(lineArr)</span><br><span class="line">    labelMat.append(float(curLine[<span class="number">-1</span>]))</span><br><span class="line">print(mat(dataMat))</span><br><span class="line">print(mat(labelMat).T)</span><br></pre></td></tr></table></figure>
+<pre><code>[[  1.       6.1101]
+ [  1.       5.5277]
+ [  1.       8.5186]
+ [  1.       7.0032]
+ [  1.       5.8598]
+ [  1.       8.3829]
+ [  1.       7.4764]
+ [  1.       8.5781]
+ [  1.       6.4862]
+ [  1.       5.0546]
+ [  1.       5.7107]
+ [  1.      14.164 ]
+ [  1.       5.734 ]
+ [  1.       8.4084]
+ [  1.       5.6407]
+ [  1.       5.3794]
+ [  1.       6.3654]
+ [  1.       5.1301]
+ [  1.       6.4296]
+ [  1.       7.0708]
+ [  1.       6.1891]
+ [  1.      20.27  ]
+ [  1.       5.4901]
+ [  1.       6.3261]
+ [  1.       5.5649]
+ [  1.      18.945 ]
+ [  1.      12.828 ]
+ [  1.      10.957 ]
+ [  1.      13.176 ]
+ [  1.      22.203 ]
+ [  1.       5.2524]
+ [  1.       6.5894]
+ [  1.       9.2482]
+ [  1.       5.8918]
+ [  1.       8.2111]
+ [  1.       7.9334]
+ [  1.       8.0959]
+ [  1.       5.6063]
+ [  1.      12.836 ]
+ [  1.       6.3534]
+ [  1.       5.4069]
+ [  1.       6.8825]
+ [  1.      11.708 ]
+ [  1.       5.7737]
+ [  1.       7.8247]
+ [  1.       7.0931]
+ [  1.       5.0702]
+ [  1.       5.8014]
+ [  1.      11.7   ]
+ [  1.       5.5416]
+ [  1.       7.5402]
+ [  1.       5.3077]
+ [  1.       7.4239]
+ [  1.       7.6031]
+ [  1.       6.3328]
+ [  1.       6.3589]
+ [  1.       6.2742]
+ [  1.       5.6397]
+ [  1.       9.3102]
+ [  1.       9.4536]
+ [  1.       8.8254]
+ [  1.       5.1793]
+ [  1.      21.279 ]
+ [  1.      14.908 ]
+ [  1.      18.959 ]
+ [  1.       7.2182]
+ [  1.       8.2951]
+ [  1.      10.236 ]
+ [  1.       5.4994]
+ [  1.      20.341 ]
+ [  1.      10.136 ]
+ [  1.       7.3345]
+ [  1.       6.0062]
+ [  1.       7.2259]
+ [  1.       5.0269]
+ [  1.       6.5479]
+ [  1.       7.5386]
+ [  1.       5.0365]
+ [  1.      10.274 ]
+ [  1.       5.1077]
+ [  1.       5.7292]
+ [  1.       5.1884]
+ [  1.       6.3557]
+ [  1.       9.7687]
+ [  1.       6.5159]
+ [  1.       8.5172]
+ [  1.       9.1802]
+ [  1.       6.002 ]
+ [  1.       5.5204]
+ [  1.       5.0594]
+ [  1.       5.7077]
+ [  1.       7.6366]
+ [  1.       5.8707]
+ [  1.       5.3054]
+ [  1.       8.2934]
+ [  1.      13.394 ]
+ [  1.       5.4369]]
+[[ 17.592  ]
+ [  9.1302 ]
+ [ 13.662  ]
+ [ 11.854  ]
+ [  6.8233 ]
+ [ 11.886  ]
+ [  4.3483 ]
+ [ 12.     ]
+ [  6.5987 ]
+ [  3.8166 ]
+ [  3.2522 ]
+ [ 15.505  ]
+ [  3.1551 ]
+ [  7.2258 ]
+ [  0.71618]
+ [  3.5129 ]
+ [  5.3048 ]
+ [  0.56077]
+ [  3.6518 ]
+ [  5.3893 ]
+ [  3.1386 ]
+ [ 21.767  ]
+ [  4.263  ]
+ [  5.1875 ]
+ [  3.0825 ]
+ [ 22.638  ]
+ [ 13.501  ]
+ [  7.0467 ]
+ [ 14.692  ]
+ [ 24.147  ]
+ [ -1.22   ]
+ [  5.9966 ]
+ [ 12.134  ]
+ [  1.8495 ]
+ [  6.5426 ]
+ [  4.5623 ]
+ [  4.1164 ]
+ [  3.3928 ]
+ [ 10.117  ]
+ [  5.4974 ]
+ [  0.55657]
+ [  3.9115 ]
+ [  5.3854 ]
+ [  2.4406 ]
+ [  6.7318 ]
+ [  1.0463 ]
+ [  5.1337 ]
+ [  1.844  ]
+ [  8.0043 ]
+ [  1.0179 ]
+ [  6.7504 ]
+ [  1.8396 ]
+ [  4.2885 ]
+ [  4.9981 ]
+ [  1.4233 ]
+ [ -1.4211 ]
+ [  2.4756 ]
+ [  4.6042 ]
+ [  3.9624 ]
+ [  5.4141 ]
+ [  5.1694 ]
+ [ -0.74279]
+ [ 17.929  ]
+ [ 12.054  ]
+ [ 17.054  ]
+ [  4.8852 ]
+ [  5.7442 ]
+ [  7.7754 ]
+ [  1.0173 ]
+ [ 20.992  ]
+ [  6.6799 ]
+ [  4.0259 ]
+ [  1.2784 ]
+ [  3.3411 ]
+ [ -2.6807 ]
+ [  0.29678]
+ [  3.8845 ]
+ [  5.7014 ]
+ [  6.7526 ]
+ [  2.0576 ]
+ [  0.47953]
+ [  0.20421]
+ [  0.67861]
+ [  7.5435 ]
+ [  5.3436 ]
+ [  4.2415 ]
+ [  6.7981 ]
+ [  0.92695]
+ [  0.152  ]
+ [  2.8214 ]
+ [  1.8451 ]
+ [  4.2959 ]
+ [  7.2029 ]
+ [  1.9869 ]
+ [  0.14454]
+ [  9.0551 ]
+ [  0.61705]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xArr,yArr = loadDataSet(<span class="string">'/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>)</span><br><span class="line">xMat = mat(xArr)</span><br><span class="line">yMat = mat(yArr).T</span><br><span class="line">xTx = xMat.T*xMat</span><br><span class="line">ws = xTx.I*(xMat.T*yMat)</span><br><span class="line">print(ws)</span><br></pre></td></tr></table></figure>
+<pre><code>[[-3.89578088]
+ [ 1.19303364]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(xMat[:,<span class="number">1</span>])</span><br><span class="line">print(xMat[:,<span class="number">1</span>].flatten())</span><br><span class="line">print(xMat[:,<span class="number">1</span>].flatten().A[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>[[  6.1101]
+ [  5.5277]
+ [  8.5186]
+ [  7.0032]
+ [  5.8598]
+ [  8.3829]
+ [  7.4764]
+ [  8.5781]
+ [  6.4862]
+ [  5.0546]
+ [  5.7107]
+ [ 14.164 ]
+ [  5.734 ]
+ [  8.4084]
+ [  5.6407]
+ [  5.3794]
+ [  6.3654]
+ [  5.1301]
+ [  6.4296]
+ [  7.0708]
+ [  6.1891]
+ [ 20.27  ]
+ [  5.4901]
+ [  6.3261]
+ [  5.5649]
+ [ 18.945 ]
+ [ 12.828 ]
+ [ 10.957 ]
+ [ 13.176 ]
+ [ 22.203 ]
+ [  5.2524]
+ [  6.5894]
+ [  9.2482]
+ [  5.8918]
+ [  8.2111]
+ [  7.9334]
+ [  8.0959]
+ [  5.6063]
+ [ 12.836 ]
+ [  6.3534]
+ [  5.4069]
+ [  6.8825]
+ [ 11.708 ]
+ [  5.7737]
+ [  7.8247]
+ [  7.0931]
+ [  5.0702]
+ [  5.8014]
+ [ 11.7   ]
+ [  5.5416]
+ [  7.5402]
+ [  5.3077]
+ [  7.4239]
+ [  7.6031]
+ [  6.3328]
+ [  6.3589]
+ [  6.2742]
+ [  5.6397]
+ [  9.3102]
+ [  9.4536]
+ [  8.8254]
+ [  5.1793]
+ [ 21.279 ]
+ [ 14.908 ]
+ [ 18.959 ]
+ [  7.2182]
+ [  8.2951]
+ [ 10.236 ]
+ [  5.4994]
+ [ 20.341 ]
+ [ 10.136 ]
+ [  7.3345]
+ [  6.0062]
+ [  7.2259]
+ [  5.0269]
+ [  6.5479]
+ [  7.5386]
+ [  5.0365]
+ [ 10.274 ]
+ [  5.1077]
+ [  5.7292]
+ [  5.1884]
+ [  6.3557]
+ [  9.7687]
+ [  6.5159]
+ [  8.5172]
+ [  9.1802]
+ [  6.002 ]
+ [  5.5204]
+ [  5.0594]
+ [  5.7077]
+ [  7.6366]
+ [  5.8707]
+ [  5.3054]
+ [  8.2934]
+ [ 13.394 ]
+ [  5.4369]]
+[[  6.1101   5.5277   8.5186   7.0032   5.8598   8.3829   7.4764   8.5781
+    6.4862   5.0546   5.7107  14.164    5.734    8.4084   5.6407   5.3794
+    6.3654   5.1301   6.4296   7.0708   6.1891  20.27     5.4901   6.3261
+    5.5649  18.945   12.828   10.957   13.176   22.203    5.2524   6.5894
+    9.2482   5.8918   8.2111   7.9334   8.0959   5.6063  12.836    6.3534
+    5.4069   6.8825  11.708    5.7737   7.8247   7.0931   5.0702   5.8014
+   11.7      5.5416   7.5402   5.3077   7.4239   7.6031   6.3328   6.3589
+    6.2742   5.6397   9.3102   9.4536   8.8254   5.1793  21.279   14.908
+   18.959    7.2182   8.2951  10.236    5.4994  20.341   10.136    7.3345
+    6.0062   7.2259   5.0269   6.5479   7.5386   5.0365  10.274    5.1077
+    5.7292   5.1884   6.3557   9.7687   6.5159   8.5172   9.1802   6.002
+    5.5204   5.0594   5.7077   7.6366   5.8707   5.3054   8.2934  13.394
+    5.4369]]
+[  6.1101   5.5277   8.5186   7.0032   5.8598   8.3829   7.4764   8.5781
+   6.4862   5.0546   5.7107  14.164    5.734    8.4084   5.6407   5.3794
+   6.3654   5.1301   6.4296   7.0708   6.1891  20.27     5.4901   6.3261
+   5.5649  18.945   12.828   10.957   13.176   22.203    5.2524   6.5894
+   9.2482   5.8918   8.2111   7.9334   8.0959   5.6063  12.836    6.3534
+   5.4069   6.8825  11.708    5.7737   7.8247   7.0931   5.0702   5.8014
+  11.7      5.5416   7.5402   5.3077   7.4239   7.6031   6.3328   6.3589
+   6.2742   5.6397   9.3102   9.4536   8.8254   5.1793  21.279   14.908
+  18.959    7.2182   8.2951  10.236    5.4994  20.341   10.136    7.3345
+   6.0062   7.2259   5.0269   6.5479   7.5386   5.0365  10.274    5.1077
+   5.7292   5.1884   6.3557   9.7687   6.5159   8.5172   9.1802   6.002
+   5.5204   5.0594   5.7077   7.6366   5.8707   5.3054   8.2934  13.394
+   5.4369]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">xArr,yArr = loadDataSet(<span class="string">'/Users/a123/Desktop/Coursera/machine-learning-ex1/ex1/ex1data1.txt'</span>)</span><br><span class="line">xMat = mat(xArr)</span><br><span class="line">yMat = mat(yArr).T</span><br><span class="line">xCopy = xMat.copy()</span><br><span class="line">xCopy.sort(<span class="number">0</span>)</span><br><span class="line">print(xCopy)</span><br><span class="line">yHat = xCopy*ws</span><br><span class="line">print(yHat)</span><br><span class="line">print(xCopy[:,<span class="number">1</span>])</span><br><span class="line">plt.plot(xCopy[:,<span class="number">1</span>],yHat)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>[[  1.       5.0269]
+ [  1.       5.0365]
+ [  1.       5.0546]
+ [  1.       5.0594]
+ [  1.       5.0702]
+ [  1.       5.1077]
+ [  1.       5.1301]
+ [  1.       5.1793]
+ [  1.       5.1884]
+ [  1.       5.2524]
+ [  1.       5.3054]
+ [  1.       5.3077]
+ [  1.       5.3794]
+ [  1.       5.4069]
+ [  1.       5.4369]
+ [  1.       5.4901]
+ [  1.       5.4994]
+ [  1.       5.5204]
+ [  1.       5.5277]
+ [  1.       5.5416]
+ [  1.       5.5649]
+ [  1.       5.6063]
+ [  1.       5.6397]
+ [  1.       5.6407]
+ [  1.       5.7077]
+ [  1.       5.7107]
+ [  1.       5.7292]
+ [  1.       5.734 ]
+ [  1.       5.7737]
+ [  1.       5.8014]
+ [  1.       5.8598]
+ [  1.       5.8707]
+ [  1.       5.8918]
+ [  1.       6.002 ]
+ [  1.       6.0062]
+ [  1.       6.1101]
+ [  1.       6.1891]
+ [  1.       6.2742]
+ [  1.       6.3261]
+ [  1.       6.3328]
+ [  1.       6.3534]
+ [  1.       6.3557]
+ [  1.       6.3589]
+ [  1.       6.3654]
+ [  1.       6.4296]
+ [  1.       6.4862]
+ [  1.       6.5159]
+ [  1.       6.5479]
+ [  1.       6.5894]
+ [  1.       6.8825]
+ [  1.       7.0032]
+ [  1.       7.0708]
+ [  1.       7.0931]
+ [  1.       7.2182]
+ [  1.       7.2259]
+ [  1.       7.3345]
+ [  1.       7.4239]
+ [  1.       7.4764]
+ [  1.       7.5386]
+ [  1.       7.5402]
+ [  1.       7.6031]
+ [  1.       7.6366]
+ [  1.       7.8247]
+ [  1.       7.9334]
+ [  1.       8.0959]
+ [  1.       8.2111]
+ [  1.       8.2934]
+ [  1.       8.2951]
+ [  1.       8.3829]
+ [  1.       8.4084]
+ [  1.       8.5172]
+ [  1.       8.5186]
+ [  1.       8.5781]
+ [  1.       8.8254]
+ [  1.       9.1802]
+ [  1.       9.2482]
+ [  1.       9.3102]
+ [  1.       9.4536]
+ [  1.       9.7687]
+ [  1.      10.136 ]
+ [  1.      10.236 ]
+ [  1.      10.274 ]
+ [  1.      10.957 ]
+ [  1.      11.7   ]
+ [  1.      11.708 ]
+ [  1.      12.828 ]
+ [  1.      12.836 ]
+ [  1.      13.176 ]
+ [  1.      13.394 ]
+ [  1.      14.164 ]
+ [  1.      14.908 ]
+ [  1.      18.945 ]
+ [  1.      18.959 ]
+ [  1.      20.27  ]
+ [  1.      20.341 ]
+ [  1.      21.279 ]
+ [  1.      22.203 ]]
+[[  2.10147995]
+ [  2.11293307]
+ [  2.13452698]
+ [  2.14025354]
+ [  2.1531383 ]
+ [  2.19787707]
+ [  2.22460102]
+ [  2.28329828]
+ [  2.29415488]
+ [  2.37050903]
+ [  2.43373982]
+ [  2.43648379]
+ [  2.52202431]
+ [  2.55483273]
+ [  2.59062374]
+ [  2.65409313]
+ [  2.66518834]
+ [  2.69024205]
+ [  2.6989512 ]
+ [  2.71553436]
+ [  2.74333205]
+ [  2.79272364]
+ [  2.83257096]
+ [  2.833764  ]
+ [  2.91369725]
+ [  2.91727635]
+ [  2.93934748]
+ [  2.94507404]
+ [  2.99243747]
+ [  3.02548451]
+ [  3.09515767]
+ [  3.10816174]
+ [  3.13333475]
+ [  3.26480705]
+ [  3.2698178 ]
+ [  3.39377399]
+ [  3.48802365]
+ [  3.58955081]
+ [  3.65146926]
+ [  3.65946258]
+ [  3.68403908]
+ [  3.68678305]
+ [  3.69060076]
+ [  3.69835548]
+ [  3.77494824]
+ [  3.84247394]
+ [  3.87790704]
+ [  3.91608412]
+ [  3.96559502]
+ [  4.31527318]
+ [  4.45927234]
+ [  4.53992141]
+ [  4.56652606]
+ [  4.71577457]
+ [  4.72496093]
+ [  4.85452438]
+ [  4.96118159]
+ [  5.02381586]
+ [  5.09802255]
+ [  5.09993141]
+ [  5.17497322]
+ [  5.21493985]
+ [  5.43934948]
+ [  5.56903223]
+ [  5.7629002 ]
+ [  5.90033768]
+ [  5.99852435]
+ [  6.0005525 ]
+ [  6.10530086]
+ [  6.13572322]
+ [  6.26552528]
+ [  6.26719552]
+ [  6.33818102]
+ [  6.63321825]
+ [  7.05650658]
+ [  7.13763287]
+ [  7.21160096]
+ [  7.38268198]
+ [  7.75860688]
+ [  8.19680814]
+ [  8.3161115 ]
+ [  8.36144678]
+ [  9.17628876]
+ [ 10.06271276]
+ [ 10.07225703]
+ [ 11.40845471]
+ [ 11.41799898]
+ [ 11.82363042]
+ [ 12.08371175]
+ [ 13.00234766]
+ [ 13.88996469]
+ [ 18.70624151]
+ [ 18.72294398]
+ [ 20.28701109]
+ [ 20.37171648]
+ [ 21.49078204]
+ [ 22.59314512]]
+[[  5.0269]
+ [  5.0365]
+ [  5.0546]
+ [  5.0594]
+ [  5.0702]
+ [  5.1077]
+ [  5.1301]
+ [  5.1793]
+ [  5.1884]
+ [  5.2524]
+ [  5.3054]
+ [  5.3077]
+ [  5.3794]
+ [  5.4069]
+ [  5.4369]
+ [  5.4901]
+ [  5.4994]
+ [  5.5204]
+ [  5.5277]
+ [  5.5416]
+ [  5.5649]
+ [  5.6063]
+ [  5.6397]
+ [  5.6407]
+ [  5.7077]
+ [  5.7107]
+ [  5.7292]
+ [  5.734 ]
+ [  5.7737]
+ [  5.8014]
+ [  5.8598]
+ [  5.8707]
+ [  5.8918]
+ [  6.002 ]
+ [  6.0062]
+ [  6.1101]
+ [  6.1891]
+ [  6.2742]
+ [  6.3261]
+ [  6.3328]
+ [  6.3534]
+ [  6.3557]
+ [  6.3589]
+ [  6.3654]
+ [  6.4296]
+ [  6.4862]
+ [  6.5159]
+ [  6.5479]
+ [  6.5894]
+ [  6.8825]
+ [  7.0032]
+ [  7.0708]
+ [  7.0931]
+ [  7.2182]
+ [  7.2259]
+ [  7.3345]
+ [  7.4239]
+ [  7.4764]
+ [  7.5386]
+ [  7.5402]
+ [  7.6031]
+ [  7.6366]
+ [  7.8247]
+ [  7.9334]
+ [  8.0959]
+ [  8.2111]
+ [  8.2934]
+ [  8.2951]
+ [  8.3829]
+ [  8.4084]
+ [  8.5172]
+ [  8.5186]
+ [  8.5781]
+ [  8.8254]
+ [  9.1802]
+ [  9.2482]
+ [  9.3102]
+ [  9.4536]
+ [  9.7687]
+ [ 10.136 ]
+ [ 10.236 ]
+ [ 10.274 ]
+ [ 10.957 ]
+ [ 11.7   ]
+ [ 11.708 ]
+ [ 12.828 ]
+ [ 12.836 ]
+ [ 13.176 ]
+ [ 13.394 ]
+ [ 14.164 ]
+ [ 14.908 ]
+ [ 18.945 ]
+ [ 18.959 ]
+ [ 20.27  ]
+ [ 20.341 ]
+ [ 21.279 ]
+ [ 22.203 ]]
+</code></pre><p><img src="/2018/04/28/LR/output_7_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#计算预测值和真实值的相关性</span></span><br><span class="line">corrcoef(yHat.T,yMat.T)<span class="comment">#两个参数都要为行向量</span></span><br></pre></td></tr></table></figure>
+<pre><code>array([[ 1.       , -0.2373748],
+       [-0.2373748,  1.       ]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#局部加权线性回归LWLR 机器学习实战P143页</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">(fileName)</span>:</span></span><br><span class="line">    numFeat = len(open(fileName).readline().split(<span class="string">'\t'</span>))<span class="number">-1</span><span class="comment">#属性数量</span></span><br><span class="line">    dataMat = [];labelMat = []</span><br><span class="line">    fr = open(fileName)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():<span class="comment">#按行读入，读入后默认为字符串</span></span><br><span class="line">        lineArr = []</span><br><span class="line">        curLine = line.strip().split(<span class="string">'\t'</span>)<span class="comment">#去掉首尾空格，按逗号分隔，每一行为一个列表，列表中每个元素为字符串</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeat):</span><br><span class="line">            lineArr.append(float(curLine[i]))</span><br><span class="line">        dataMat.append(lineArr)</span><br><span class="line">        labelMat.append(float(curLine[<span class="number">-1</span>]))</span><br><span class="line">    <span class="keyword">return</span> dataMat,labelMat<span class="comment">#列表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lwlr</span><span class="params">(testpoint,xArr,yArr,k)</span>:</span></span><br><span class="line">    xMat = mat(xArr);yMat = mat(yArr).T</span><br><span class="line">    m = shape(xMat)[<span class="number">0</span>]</span><br><span class="line">    weights = mat(eye((m)))</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(m):</span><br><span class="line">        diffmat = testpoint - xMat[j,:]</span><br><span class="line">        weights[j,j]=exp(diffmat*diffmat.T/(<span class="number">-2</span>*k**<span class="number">2</span>))</span><br><span class="line">    xTx = xMat.T*(weights*xMat)</span><br><span class="line">    <span class="keyword">if</span> linalg.det(xTx) == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'This matrix is singular, cannot do inverse'</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ws = xTx.I*(xMat.T*(weights*yMat))</span><br><span class="line">    <span class="keyword">return</span> testpoint*ws</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lwlrTest</span><span class="params">(testArr,xArr,yArr,k=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    m = shape(testArr)[<span class="number">0</span>]</span><br><span class="line">    yHat = zeros(m)<span class="comment">#构建一个全是0的1*m矩阵</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">        yHat[i] = lwlr(testArr[i],xArr,yArr,k=<span class="number">1.0</span>)</span><br><span class="line">    <span class="keyword">return</span> yHat</span><br><span class="line"></span><br><span class="line">xArr,yArr = loadDataSet(<span class="string">'/Users/a123/Desktop/machinelearninginaction/Ch08/ex0.txt'</span>)</span><br><span class="line">print(lwlr(xArr[<span class="number">0</span>],xArr,yArr,<span class="number">1.0</span>))</span><br><span class="line">print(lwlr(xArr[<span class="number">0</span>],xArr,yArr,<span class="number">0.001</span>))</span><br><span class="line">yHat = lwlrTest(xArr,xArr,yArr,<span class="number">0.001</span>)</span><br><span class="line">print(yHat)</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">ax.plot(xSort[:,<span class="number">1</span>],yHat[srtInd])</span><br><span class="line">ax.scatter(xMat[:,<span class="number">1</span>].flatten().A[<span class="number">0</span>],mat(yArr).T.flatten().A[<span class="number">0</span>],s=<span class="number">2</span>,c=<span class="string">'red'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 3.12204471]]
+[[ 3.20175729]]
+[ 3.12204471  3.73284336  4.69692033  4.25997574  4.67205815  3.89979584
+  3.64981617  3.06462993  3.23234485  3.24169633  3.42741618  4.10707034
+  4.24787613  3.40879727  4.65288661  4.03784328  3.61542726  3.25787329
+  4.08932965  3.39783761  3.12629106  3.12106493  4.57784181  4.22499774
+  3.03329674  3.57546269  3.07586196  3.36765021  4.05435451  3.92530073
+  3.08411123  3.22212205  3.95125595  4.53636662  4.63368585  3.47279924
+  3.67613549  4.48770772  3.70250157  4.54964976  3.29004763  4.13549978
+  3.45441958  3.39926586  3.9452161   3.08816389  3.62751621  3.84688831
+  3.84428111  4.35125277  4.31315478  3.43422203  3.31571015  4.3785447
+  3.57384393  3.58150337  3.7748906   4.18601319  4.00967978  3.52940957
+  3.25875168  4.19859322  4.23146773  4.13867447  3.21901745  4.0561676
+  3.65354789  3.66128122  4.325913    3.2040255   3.20300481  4.13294306
+  3.43941808  4.69379223  3.50821162  4.6235812   3.5279148   3.47737983
+  3.48050144  3.30514953  3.27235     4.25119686  4.44639135  4.31574207
+  3.73569804  3.28217383  4.56339108  3.54148328  3.3488199   3.51093301
+  3.57813857  4.13735536  3.9977728   3.15137008  4.17283219  4.61871301
+  3.32921189  4.43940561  3.57243898  3.73152804  3.79828782  3.94136439
+  3.47899493  4.56628532  4.51160109  3.9733276   3.1197512   3.57661822
+  3.73123612  3.67842653  4.18508115  3.46974383  3.86130443  3.1210056
+  3.07220096  4.02363416  4.61429802  4.14613244  3.74472547  3.87129551
+  4.27883053  3.10557174  3.82647897  3.79897863  3.6139764   4.61780999
+  3.71504003  4.56915748  3.27243479  4.12131729  4.0529964   4.45536498
+  3.23319944  4.18302013  3.30977094  3.34551764  3.13135453  3.49307969
+  3.31583735  4.06166289  3.59160637  3.68319531  3.82205056  3.2672067
+  3.29857281  4.47854412  3.38678321  3.90341148  4.51777512  3.18751671
+  4.56478643  3.03242227  3.97026179  3.12394666  4.03112577  3.90977536
+  4.11231956  4.53650412  3.35367751  4.18823888  4.64293322  4.67257923
+  4.68364746  4.68880048  4.25604553  3.4371958   4.15197762  4.60125152
+  3.40639871  3.19458504  3.37689095  4.48312084  3.34094505  4.63318002
+  4.6577835   4.27264237  3.76316251  3.80539621  3.9389488   3.57651641
+  4.50851832  4.56653485  3.75661285  3.20488852  3.61653365  4.38980705
+  3.66379623  4.67402706  4.33220297  4.11436188  4.48354863  4.03319687
+  3.4399745   4.24675055  3.84489727  3.44303652  4.42193351  3.12605035
+  3.90132188  3.20415097]
+</code></pre><p><img src="/2018/04/28/LR/output_9_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#绘图</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">xMat = mat(xArr)</span><br><span class="line">srtInd = xMat[:,<span class="number">1</span>].argsort(<span class="number">0</span>)</span><br><span class="line">xSort = xMat[srtInd][:,<span class="number">0</span>,:]</span><br><span class="line">print(srtInd)</span><br><span class="line">print(xMat[srtInd])</span><br><span class="line">print(xMat[srtInd][:,<span class="number">0</span>,:])</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">ax.plot(xSort[:,<span class="number">1</span>],yHat[srtInd])</span><br><span class="line">ax.scatter(xMat[:,<span class="number">1</span>].flatten().A[<span class="number">0</span>],mat(yArr).T.flatten().A[<span class="number">0</span>],s=<span class="number">2</span>,c=<span class="string">'red'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>[[151]
+ [ 24]
+ [  7]
+ [114]
+ [ 26]
+ [ 30]
+ [ 45]
+ [121]
+ [106]
+ [113]
+ [ 21]
+ [  0]
+ [153]
+ [197]
+ [ 20]
+ [136]
+ [ 93]
+ [149]
+ [169]
+ [ 70]
+ [ 69]
+ [199]
+ [183]
+ [ 64]
+ [ 31]
+ [  8]
+ [132]
+ [  9]
+ [ 17]
+ [ 60]
+ [143]
+ [ 80]
+ [128]
+ [ 85]
+ [ 40]
+ [144]
+ [ 79]
+ [134]
+ [ 52]
+ [138]
+ [ 96]
+ [172]
+ [135]
+ [ 88]
+ [158]
+ [ 27]
+ [170]
+ [146]
+ [ 19]
+ [ 43]
+ [168]
+ [ 13]
+ [ 10]
+ [ 51]
+ [165]
+ [ 72]
+ [192]
+ [195]
+ [ 42]
+ [111]
+ [ 35]
+ [ 77]
+ [102]
+ [ 78]
+ [137]
+ [ 74]
+ [ 89]
+ [ 76]
+ [ 59]
+ [ 87]
+ [ 98]
+ [ 54]
+ [ 25]
+ [179]
+ [107]
+ [ 90]
+ [ 55]
+ [140]
+ [124]
+ [ 16]
+ [184]
+ [ 46]
+ [  6]
+ [ 66]
+ [ 67]
+ [186]
+ [ 36]
+ [109]
+ [141]
+ [ 38]
+ [126]
+ [108]
+ [ 99]
+ [  1]
+ [ 84]
+ [118]
+ [182]
+ [176]
+ [ 56]
+ [100]
+ [123]
+ [177]
+ [142]
+ [122]
+ [ 48]
+ [194]
+ [ 47]
+ [112]
+ [119]
+ [  5]
+ [198]
+ [147]
+ [155]
+ [ 29]
+ [178]
+ [101]
+ [ 44]
+ [ 32]
+ [152]
+ [105]
+ [ 92]
+ [ 58]
+ [115]
+ [154]
+ [191]
+ [ 15]
+ [130]
+ [ 28]
+ [ 65]
+ [139]
+ [ 18]
+ [ 11]
+ [156]
+ [189]
+ [129]
+ [ 71]
+ [ 41]
+ [ 91]
+ [ 63]
+ [117]
+ [166]
+ [ 94]
+ [133]
+ [110]
+ [ 57]
+ [159]
+ [ 61]
+ [ 23]
+ [ 62]
+ [193]
+ [ 12]
+ [ 81]
+ [164]
+ [  3]
+ [175]
+ [120]
+ [ 50]
+ [ 83]
+ [ 68]
+ [188]
+ [ 49]
+ [ 53]
+ [185]
+ [196]
+ [ 97]
+ [ 82]
+ [131]
+ [145]
+ [171]
+ [190]
+ [ 37]
+ [180]
+ [104]
+ [148]
+ [ 33]
+ [157]
+ [ 39]
+ [ 86]
+ [150]
+ [103]
+ [181]
+ [127]
+ [ 22]
+ [167]
+ [116]
+ [125]
+ [ 95]
+ [ 75]
+ [173]
+ [ 34]
+ [160]
+ [ 14]
+ [174]
+ [  4]
+ [161]
+ [187]
+ [162]
+ [163]
+ [ 73]
+ [  2]]
+[[[ 1.        0.014855]]
+
+ [[ 1.        0.015371]]
+
+ [[ 1.        0.033859]]
+
+ [[ 1.        0.038326]]
+
+ [[ 1.        0.040486]]
+
+ [[ 1.        0.045353]]
+
+ [[ 1.        0.047744]]
+
+ [[ 1.        0.058014]]
+
+ [[ 1.        0.066379]]
+
+ [[ 1.        0.067119]]
+
+ [[ 1.        0.067154]]
+
+ [[ 1.        0.067732]]
+
+ [[ 1.        0.068854]]
+
+ [[ 1.        0.070095]]
+
+ [[ 1.        0.070237]]
+
+ [[ 1.        0.073224]]
+
+ [[ 1.        0.085031]]
+
+ [[ 1.        0.106352]]
+
+ [[ 1.        0.110521]]
+
+ [[ 1.        0.115487]]
+
+ [[ 1.        0.116089]]
+
+ [[ 1.        0.116163]]
+
+ [[ 1.        0.116598]]
+
+ [[ 1.        0.124931]]
+
+ [[ 1.        0.126762]]
+
+ [[ 1.        0.132791]]
+
+ [[ 1.        0.133295]]
+
+ [[ 1.        0.138306]]
+
+ [[ 1.        0.147846]]
+
+ [[ 1.        0.148364]]
+
+ [[ 1.        0.15335 ]]
+
+ [[ 1.        0.156383]]
+
+ [[ 1.        0.156433]]
+
+ [[ 1.        0.162176]]
+
+ [[ 1.        0.166819]]
+
+ [[ 1.        0.171846]]
+
+ [[ 1.        0.175724]]
+
+ [[ 1.        0.178449]]
+
+ [[ 1.        0.181951]]
+
+ [[ 1.        0.182026]]
+
+ [[ 1.        0.189912]]
+
+ [[ 1.        0.19683 ]]
+
+ [[ 1.        0.199526]]
+
+ [[ 1.        0.201473]]
+
+ [[ 1.        0.204337]]
+
+ [[ 1.        0.212575]]
+
+ [[ 1.        0.218023]]
+
+ [[ 1.        0.223855]]
+
+ [[ 1.        0.230372]]
+
+ [[ 1.        0.231214]]
+
+ [[ 1.        0.235419]]
+
+ [[ 1.        0.236833]]
+
+ [[ 1.        0.247809]]
+
+ [[ 1.        0.251821]]
+
+ [[ 1.        0.253574]]
+
+ [[ 1.        0.254884]]
+
+ [[ 1.        0.255212]]
+
+ [[ 1.        0.257017]]
+
+ [[ 1.        0.263727]]
+
+ [[ 1.        0.27276 ]]
+
+ [[ 1.        0.274561]]
+
+ [[ 1.        0.277261]]
+
+ [[ 1.        0.278213]]
+
+ [[ 1.        0.279101]]
+
+ [[ 1.        0.286515]]
+
+ [[ 1.        0.295434]]
+
+ [[ 1.        0.297038]]
+
+ [[ 1.        0.307047]]
+
+ [[ 1.        0.307928]]
+
+ [[ 1.        0.315044]]
+
+ [[ 1.        0.333288]]
+
+ [[ 1.        0.334116]]
+
+ [[ 1.        0.33507 ]]
+
+ [[ 1.        0.335691]]
+
+ [[ 1.        0.335751]]
+
+ [[ 1.        0.336647]]
+
+ [[ 1.        0.33863 ]]
+
+ [[ 1.        0.344584]]
+
+ [[ 1.        0.357767]]
+
+ [[ 1.        0.358622]]
+
+ [[ 1.        0.359274]]
+
+ [[ 1.        0.365746]]
+
+ [[ 1.        0.378887]]
+
+ [[ 1.        0.381086]]
+
+ [[ 1.        0.385643]]
+
+ [[ 1.        0.387125]]
+
+ [[ 1.        0.394396]]
+
+ [[ 1.        0.395746]]
+
+ [[ 1.        0.398556]]
+
+ [[ 1.        0.409932]]
+
+ [[ 1.        0.41732 ]]
+
+ [[ 1.        0.426863]]
+
+ [[ 1.        0.427035]]
+
+ [[ 1.        0.42781 ]]
+
+ [[ 1.        0.429492]]
+
+ [[ 1.        0.434811]]
+
+ [[ 1.        0.441815]]
+
+ [[ 1.        0.445674]]
+
+ [[ 1.        0.452584]]
+
+ [[ 1.        0.466369]]
+
+ [[ 1.        0.466776]]
+
+ [[ 1.        0.470557]]
+
+ [[ 1.        0.480369]]
+
+ [[ 1.        0.482978]]
+
+ [[ 1.        0.493466]]
+
+ [[ 1.        0.493829]]
+
+ [[ 1.        0.495002]]
+
+ [[ 1.        0.503495]]
+
+ [[ 1.        0.509381]]
+
+ [[ 1.        0.526171]]
+
+ [[ 1.        0.52707 ]]
+
+ [[ 1.        0.528301]]
+
+ [[ 1.        0.53205 ]]
+
+ [[ 1.        0.541196]]
+
+ [[ 1.        0.549236]]
+
+ [[ 1.        0.550659]]
+
+ [[ 1.        0.552928]]
+
+ [[ 1.        0.556486]]
+
+ [[ 1.        0.567682]]
+
+ [[ 1.        0.569488]]
+
+ [[ 1.        0.583888]]
+
+ [[ 1.        0.590902]]
+
+ [[ 1.        0.599122]]
+
+ [[ 1.        0.603535]]
+
+ [[ 1.        0.604755]]
+
+ [[ 1.        0.607492]]
+
+ [[ 1.        0.616418]]
+
+ [[ 1.        0.617218]]
+
+ [[ 1.        0.618286]]
+
+ [[ 1.        0.621523]]
+
+ [[ 1.        0.63782 ]]
+
+ [[ 1.        0.64827 ]]
+
+ [[ 1.        0.651362]]
+
+ [[ 1.        0.652565]]
+
+ [[ 1.        0.656662]]
+
+ [[ 1.        0.66351 ]]
+
+ [[ 1.        0.665016]]
+
+ [[ 1.        0.666109]]
+
+ [[ 1.        0.666886]]
+
+ [[ 1.        0.671279]]
+
+ [[ 1.        0.674722]]
+
+ [[ 1.        0.687006]]
+
+ [[ 1.        0.693007]]
+
+ [[ 1.        0.694221]]
+
+ [[ 1.        0.69477 ]]
+
+ [[ 1.        0.696081]]
+
+ [[ 1.        0.70218 ]]
+
+ [[ 1.        0.717733]]
+
+ [[ 1.        0.721544]]
+
+ [[ 1.        0.730546]]
+
+ [[ 1.        0.731209]]
+
+ [[ 1.        0.733165]]
+
+ [[ 1.        0.736021]]
+
+ [[ 1.        0.738336]]
+
+ [[ 1.        0.745797]]
+
+ [[ 1.        0.749442]]
+
+ [[ 1.        0.76966 ]]
+
+ [[ 1.        0.771184]]
+
+ [[ 1.        0.777175]]
+
+ [[ 1.        0.78088 ]]
+
+ [[ 1.        0.792101]]
+
+ [[ 1.        0.808177]]
+
+ [[ 1.        0.814811]]
+
+ [[ 1.        0.833735]]
+
+ [[ 1.        0.844027]]
+
+ [[ 1.        0.848142]]
+
+ [[ 1.        0.853428]]
+
+ [[ 1.        0.867082]]
+
+ [[ 1.        0.869778]]
+
+ [[ 1.        0.87003 ]]
+
+ [[ 1.        0.87248 ]]
+
+ [[ 1.        0.884739]]
+
+ [[ 1.        0.886555]]
+
+ [[ 1.        0.890192]]
+
+ [[ 1.        0.901144]]
+
+ [[ 1.        0.901225]]
+
+ [[ 1.        0.908969]]
+
+ [[ 1.        0.917064]]
+
+ [[ 1.        0.917886]]
+
+ [[ 1.        0.918769]]
+
+ [[ 1.        0.918916]]
+
+ [[ 1.        0.920461]]
+
+ [[ 1.        0.925577]]
+
+ [[ 1.        0.939368]]
+
+ [[ 1.        0.947054]]
+
+ [[ 1.        0.949123]]
+
+ [[ 1.        0.949655]]
+
+ [[ 1.        0.952523]]
+
+ [[ 1.        0.958178]]
+
+ [[ 1.        0.958476]]
+
+ [[ 1.        0.963924]]
+
+ [[ 1.        0.969788]]
+
+ [[ 1.        0.972673]]
+
+ [[ 1.        0.981083]]
+
+ [[ 1.        0.98139 ]]
+
+ [[ 1.        0.982243]]
+
+ [[ 1.        0.987911]]
+
+ [[ 1.        0.990947]]
+
+ [[ 1.        0.993888]]
+
+ [[ 1.        0.995731]]]
+[[ 1.        0.014855]
+ [ 1.        0.015371]
+ [ 1.        0.033859]
+ [ 1.        0.038326]
+ [ 1.        0.040486]
+ [ 1.        0.045353]
+ [ 1.        0.047744]
+ [ 1.        0.058014]
+ [ 1.        0.066379]
+ [ 1.        0.067119]
+ [ 1.        0.067154]
+ [ 1.        0.067732]
+ [ 1.        0.068854]
+ [ 1.        0.070095]
+ [ 1.        0.070237]
+ [ 1.        0.073224]
+ [ 1.        0.085031]
+ [ 1.        0.106352]
+ [ 1.        0.110521]
+ [ 1.        0.115487]
+ [ 1.        0.116089]
+ [ 1.        0.116163]
+ [ 1.        0.116598]
+ [ 1.        0.124931]
+ [ 1.        0.126762]
+ [ 1.        0.132791]
+ [ 1.        0.133295]
+ [ 1.        0.138306]
+ [ 1.        0.147846]
+ [ 1.        0.148364]
+ [ 1.        0.15335 ]
+ [ 1.        0.156383]
+ [ 1.        0.156433]
+ [ 1.        0.162176]
+ [ 1.        0.166819]
+ [ 1.        0.171846]
+ [ 1.        0.175724]
+ [ 1.        0.178449]
+ [ 1.        0.181951]
+ [ 1.        0.182026]
+ [ 1.        0.189912]
+ [ 1.        0.19683 ]
+ [ 1.        0.199526]
+ [ 1.        0.201473]
+ [ 1.        0.204337]
+ [ 1.        0.212575]
+ [ 1.        0.218023]
+ [ 1.        0.223855]
+ [ 1.        0.230372]
+ [ 1.        0.231214]
+ [ 1.        0.235419]
+ [ 1.        0.236833]
+ [ 1.        0.247809]
+ [ 1.        0.251821]
+ [ 1.        0.253574]
+ [ 1.        0.254884]
+ [ 1.        0.255212]
+ [ 1.        0.257017]
+ [ 1.        0.263727]
+ [ 1.        0.27276 ]
+ [ 1.        0.274561]
+ [ 1.        0.277261]
+ [ 1.        0.278213]
+ [ 1.        0.279101]
+ [ 1.        0.286515]
+ [ 1.        0.295434]
+ [ 1.        0.297038]
+ [ 1.        0.307047]
+ [ 1.        0.307928]
+ [ 1.        0.315044]
+ [ 1.        0.333288]
+ [ 1.        0.334116]
+ [ 1.        0.33507 ]
+ [ 1.        0.335691]
+ [ 1.        0.335751]
+ [ 1.        0.336647]
+ [ 1.        0.33863 ]
+ [ 1.        0.344584]
+ [ 1.        0.357767]
+ [ 1.        0.358622]
+ [ 1.        0.359274]
+ [ 1.        0.365746]
+ [ 1.        0.378887]
+ [ 1.        0.381086]
+ [ 1.        0.385643]
+ [ 1.        0.387125]
+ [ 1.        0.394396]
+ [ 1.        0.395746]
+ [ 1.        0.398556]
+ [ 1.        0.409932]
+ [ 1.        0.41732 ]
+ [ 1.        0.426863]
+ [ 1.        0.427035]
+ [ 1.        0.42781 ]
+ [ 1.        0.429492]
+ [ 1.        0.434811]
+ [ 1.        0.441815]
+ [ 1.        0.445674]
+ [ 1.        0.452584]
+ [ 1.        0.466369]
+ [ 1.        0.466776]
+ [ 1.        0.470557]
+ [ 1.        0.480369]
+ [ 1.        0.482978]
+ [ 1.        0.493466]
+ [ 1.        0.493829]
+ [ 1.        0.495002]
+ [ 1.        0.503495]
+ [ 1.        0.509381]
+ [ 1.        0.526171]
+ [ 1.        0.52707 ]
+ [ 1.        0.528301]
+ [ 1.        0.53205 ]
+ [ 1.        0.541196]
+ [ 1.        0.549236]
+ [ 1.        0.550659]
+ [ 1.        0.552928]
+ [ 1.        0.556486]
+ [ 1.        0.567682]
+ [ 1.        0.569488]
+ [ 1.        0.583888]
+ [ 1.        0.590902]
+ [ 1.        0.599122]
+ [ 1.        0.603535]
+ [ 1.        0.604755]
+ [ 1.        0.607492]
+ [ 1.        0.616418]
+ [ 1.        0.617218]
+ [ 1.        0.618286]
+ [ 1.        0.621523]
+ [ 1.        0.63782 ]
+ [ 1.        0.64827 ]
+ [ 1.        0.651362]
+ [ 1.        0.652565]
+ [ 1.        0.656662]
+ [ 1.        0.66351 ]
+ [ 1.        0.665016]
+ [ 1.        0.666109]
+ [ 1.        0.666886]
+ [ 1.        0.671279]
+ [ 1.        0.674722]
+ [ 1.        0.687006]
+ [ 1.        0.693007]
+ [ 1.        0.694221]
+ [ 1.        0.69477 ]
+ [ 1.        0.696081]
+ [ 1.        0.70218 ]
+ [ 1.        0.717733]
+ [ 1.        0.721544]
+ [ 1.        0.730546]
+ [ 1.        0.731209]
+ [ 1.        0.733165]
+ [ 1.        0.736021]
+ [ 1.        0.738336]
+ [ 1.        0.745797]
+ [ 1.        0.749442]
+ [ 1.        0.76966 ]
+ [ 1.        0.771184]
+ [ 1.        0.777175]
+ [ 1.        0.78088 ]
+ [ 1.        0.792101]
+ [ 1.        0.808177]
+ [ 1.        0.814811]
+ [ 1.        0.833735]
+ [ 1.        0.844027]
+ [ 1.        0.848142]
+ [ 1.        0.853428]
+ [ 1.        0.867082]
+ [ 1.        0.869778]
+ [ 1.        0.87003 ]
+ [ 1.        0.87248 ]
+ [ 1.        0.884739]
+ [ 1.        0.886555]
+ [ 1.        0.890192]
+ [ 1.        0.901144]
+ [ 1.        0.901225]
+ [ 1.        0.908969]
+ [ 1.        0.917064]
+ [ 1.        0.917886]
+ [ 1.        0.918769]
+ [ 1.        0.918916]
+ [ 1.        0.920461]
+ [ 1.        0.925577]
+ [ 1.        0.939368]
+ [ 1.        0.947054]
+ [ 1.        0.949123]
+ [ 1.        0.949655]
+ [ 1.        0.952523]
+ [ 1.        0.958178]
+ [ 1.        0.958476]
+ [ 1.        0.963924]
+ [ 1.        0.969788]
+ [ 1.        0.972673]
+ [ 1.        0.981083]
+ [ 1.        0.98139 ]
+ [ 1.        0.982243]
+ [ 1.        0.987911]
+ [ 1.        0.990947]
+ [ 1.        0.993888]
+ [ 1.        0.995731]]
+</code></pre><p><img src="/2018/04/28/LR/output_10_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#随机梯度下降代码实现http://blog.csdn.net/yhao2014/article/details/51554910随机梯度下降每次只用到一个样本</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#读入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">(fileName)</span>:</span></span><br><span class="line">    numFeat = len(open(fileName).readline().split(<span class="string">'\t'</span>))<span class="number">-1</span><span class="comment">#属性数量</span></span><br><span class="line">    dataMat = [];labelMat = []</span><br><span class="line">    <span class="keyword">with</span> open(fileName) <span class="keyword">as</span> fr:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():<span class="comment">#按行读入，读入后默认为字符串</span></span><br><span class="line">            lineArr = []</span><br><span class="line">            curLine = line.strip().split(<span class="string">'\t'</span>)<span class="comment">#去掉首尾空格，按逗号分隔，每一行为一个列表，列表中每个元素为字符串</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeat):</span><br><span class="line">                lineArr.append(float(curLine[i]))<span class="comment">#默认数据第一列就是1</span></span><br><span class="line">                dataMat.append(lineArr)</span><br><span class="line">                labelMat.append(float(curLine[<span class="number">-1</span>]))</span><br><span class="line">        <span class="keyword">return</span> dataMat,labelMat<span class="comment">#列表</span></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SGD</span><span class="params">(xArr,yArr)</span>:</span></span><br><span class="line">    xMat = mat(xArr);yMat = mat(yArr).T</span><br><span class="line">    epsilon = <span class="number">0.0001</span><span class="comment">#迭代阈值</span></span><br><span class="line">    alpha = <span class="number">0.01</span><span class="comment">#学习率</span></span><br><span class="line">    error1 = <span class="number">0</span></span><br><span class="line">    error0 = <span class="number">0</span></span><br><span class="line">    cnt = <span class="number">0</span><span class="comment">#迭代次数</span></span><br><span class="line">    m,n = shape(xMat)</span><br><span class="line">    theta = mat(np.zeros(n)).T<span class="comment">#参数初始化为4行1列全为0的值</span></span><br><span class="line">    temp = mat(np.zeros(n)).T</span><br><span class="line">    cont = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">while</span> cont == <span class="keyword">True</span>:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">                temp[j] = theta[j] - alpha*(xMat[i]*theta - yMat[i])*xMat[i,j]</span><br><span class="line">            theta = temp</span><br><span class="line">            error1 = (alpha/<span class="number">2</span>)*((xMat[i] * theta -yMat[i])**<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">if</span> abs(error1-error0)&lt;epsilon:</span><br><span class="line">                cont = <span class="keyword">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                error0 = error1            </span><br><span class="line">    <span class="keyword">return</span> cnt,theta</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pictureSGD</span><span class="params">(xArr,yArr,theta)</span>:</span></span><br><span class="line">    xMat = mat(xArr);yMat = mat(yArr)</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">    ax.scatter(xMat[:,<span class="number">1</span>].flatten(),yMat.T[:,<span class="number">0</span>].flatten().A[<span class="number">0</span>])</span><br><span class="line">    xcopy = xMat.copy()</span><br><span class="line">    xcopy.sort(<span class="number">0</span>)</span><br><span class="line">    yHat = xcopy * theta</span><br><span class="line">    ax.plot(xcopy[:,<span class="number">1</span>],yHat)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">xArr,yArr = loadDataSet(<span class="string">'/Users/a123/Desktop/最近个人资料/machinelearninginaction/Ch08/ex0.txt'</span>)</span><br><span class="line">cnt,theta = SGD(xArr,yArr)</span><br><span class="line">print(cnt,theta)</span><br><span class="line">pictureSGD(xArr,yArr,theta)</span><br></pre></td></tr></table></figure>
+<pre><code>1 [[ 3.06749706]
+ [ 1.54894441]]
+</code></pre><p><img src="/2018/04/28/LR/output_11_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#批量梯度下降</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#读入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">(fileName)</span>:</span></span><br><span class="line">    numFeat = len(open(fileName).readline().split(<span class="string">'\t'</span>))<span class="number">-1</span><span class="comment">#属性数量</span></span><br><span class="line">    dataMat = [];labelMat = []</span><br><span class="line">    <span class="keyword">with</span> open(fileName) <span class="keyword">as</span> fr:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():<span class="comment">#按行读入，读入后默认为字符串</span></span><br><span class="line">            lineArr = []</span><br><span class="line">            curLine = line.strip().split(<span class="string">'\t'</span>)<span class="comment">#去掉首尾空格，按逗号分隔，每一行为一个列表，列表中每个元素为字符串</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeat):</span><br><span class="line">                lineArr.append(float(curLine[i]))<span class="comment">#默认数据第一列就是1</span></span><br><span class="line">                dataMat.append(lineArr)</span><br><span class="line">                labelMat.append(float(curLine[<span class="number">-1</span>]))</span><br><span class="line">        <span class="keyword">return</span> dataMat,labelMat<span class="comment">#列表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">BGD</span><span class="params">(xArr,yArr)</span>:</span></span><br><span class="line">    xMat = mat(xArr);yMat = mat(yArr).T</span><br><span class="line">    epsilon = <span class="number">0.0001</span><span class="comment">#迭代阈值</span></span><br><span class="line">    alpha = <span class="number">0.01</span><span class="comment">#学习率</span></span><br><span class="line">    error1 = <span class="number">0</span></span><br><span class="line">    error0 = <span class="number">0</span></span><br><span class="line">    cnt = <span class="number">0</span><span class="comment">#迭代次数</span></span><br><span class="line">    m,n = shape(xMat)</span><br><span class="line">    theta = mat(np.zeros(n)).T<span class="comment">#参数初始化为4行1列全为0的值</span></span><br><span class="line">    temp = mat(np.zeros(n)).T</span><br><span class="line">    cont = <span class="keyword">True</span>    </span><br><span class="line">    <span class="keyword">while</span> cont == <span class="keyword">True</span>:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">            tempI = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">                tempI += (xMat[i]*theta - yMat[i])*xMat[i,j]</span><br><span class="line">            temp[j] = theta[j] - (alpha/m)*tempI</span><br><span class="line">        theta = temp</span><br><span class="line">        cost0 = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">            cost0 += (xMat[i]*theta-yMat[i])**<span class="number">2</span></span><br><span class="line">        error1 = cost0/(<span class="number">2</span>*m)</span><br><span class="line">        <span class="keyword">if</span> abs(error1 - error0) &lt; epsilon:</span><br><span class="line">            cont = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            error0 = error1</span><br><span class="line">    <span class="keyword">return</span> cnt,theta       </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pictureBGD</span><span class="params">(xArr,yArr,theta)</span>:</span></span><br><span class="line">    xMat = mat(xArr);yMat = mat(yArr)</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">    ax.scatter(xMat[:,<span class="number">1</span>].flatten(),yMat.T[:,<span class="number">0</span>].flatten().A[<span class="number">0</span>])</span><br><span class="line">    xcopy = xMat.copy()</span><br><span class="line">    xcopy.sort(<span class="number">0</span>)</span><br><span class="line">    yHat = xcopy * theta</span><br><span class="line">    ax.plot(xcopy[:,<span class="number">1</span>],yHat)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">xArr,yArr = loadDataSet(<span class="string">'/Users/a123/Desktop/最近个人资料/machinelearninginaction/Ch08/ex0.txt'</span>)</span><br><span class="line">cnt,theta = BGD(xArr,yArr)</span><br><span class="line">print(cnt,theta) </span><br><span class="line">pictureBGD(xArr,yArr,theta)</span><br></pre></td></tr></table></figure>
+<pre><code>300 [[ 2.98335622]
+ [ 1.57281202]]
+</code></pre><p><img src="/2018/04/28/LR/output_12_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#批量梯度下降，用矩阵进行运算</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#读入数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">(fileName)</span>:</span></span><br><span class="line">    numFeat = len(open(fileName).readline().split(<span class="string">'\t'</span>))<span class="number">-1</span><span class="comment">#属性数量</span></span><br><span class="line">    dataMat = [];labelMat = []</span><br><span class="line">    <span class="keyword">with</span> open(fileName) <span class="keyword">as</span> fr:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():<span class="comment">#按行读入，读入后默认为字符串</span></span><br><span class="line">            lineArr = []</span><br><span class="line">            curLine = line.strip().split(<span class="string">'\t'</span>)<span class="comment">#去掉首尾空格，按逗号分隔，每一行为一个列表，列表中每个元素为字符串</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(numFeat):</span><br><span class="line">                lineArr.append(float(curLine[i]))<span class="comment">#默认数据第一列就是1</span></span><br><span class="line">                dataMat.append(lineArr)</span><br><span class="line">                labelMat.append(float(curLine[<span class="number">-1</span>]))</span><br><span class="line">        <span class="keyword">return</span> dataMat,labelMat<span class="comment">#列表</span></span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">BGD2</span><span class="params">(dataMat,labelMat)</span>:</span></span><br><span class="line">    xMat = mat(dataMat);yMat = mat(labelMat).T</span><br><span class="line">    m,n = shape(xMat)</span><br><span class="line">    epsilon = <span class="number">0.0001</span></span><br><span class="line">    alpha = <span class="number">0.0001</span></span><br><span class="line">    theta = ones((n,<span class="number">1</span>))</span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    cost0 = <span class="number">0</span></span><br><span class="line">    cost1 = <span class="number">0</span></span><br><span class="line">    cont = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">while</span> cont == <span class="keyword">True</span>:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">        h = xMat * theta</span><br><span class="line">        error0 = h - yMat</span><br><span class="line">        theta -= alpha * xMat.T * error0</span><br><span class="line">        error1 = xMat * theta - yMat</span><br><span class="line">        cost1 = (<span class="number">1</span>/(<span class="number">2</span>*m))*(error1.T * error1)**<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> abs(cost1 - cost0) &lt; epsilon:</span><br><span class="line">            cont = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            cost0 = cost1</span><br><span class="line">    <span class="keyword">return</span> cnt,theta</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pictureBGD2</span><span class="params">(xArr,yArr,theta)</span>:</span></span><br><span class="line">    xMat = mat(xArr);yMat = mat(yArr)</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">    ax.scatter(xMat[:,<span class="number">1</span>].flatten(),yMat.T[:,<span class="number">0</span>].flatten().A[<span class="number">0</span>])</span><br><span class="line">    xcopy = xMat.copy()</span><br><span class="line">    xcopy.sort(<span class="number">0</span>)</span><br><span class="line">    yHat = xcopy * theta</span><br><span class="line">    ax.plot(xcopy[:,<span class="number">1</span>],yHat)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">xArr,yArr = loadDataSet(<span class="string">'/Users/a123/Desktop/最近个人资料/machinelearninginaction/Ch08/ex0.txt'</span>)</span><br><span class="line">cnt,theta = BGD2(xArr,yArr)</span><br><span class="line">print(cnt,theta) </span><br><span class="line">pictureBGD2(xArr,yArr,theta)</span><br></pre></td></tr></table></figure>
+<pre><code>116 [[ 2.896138 ]
+ [ 1.8968684]]
+</code></pre><p><img src="/2018/04/28/LR/output_13_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/28/GUAN_NBclassfy/" rel="next" title="NBclassfy">
+                <i class="fa fa-chevron-left"></i> NBclassfy
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/20/Pandas/" rel="prev" title="Pandas">
+                Pandas <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Xushuang" />
+            
+              <p class="site-author-name" itemprop="name">Xushuang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xushuang</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
